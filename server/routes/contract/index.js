@@ -2,12 +2,11 @@
   'use strict';
 
   var express = require('express');
-  var controller = require('./count.controller')    
+  var controller = require('./contract.controller')    
     
   var router = express.Router();
 
-  router.get('/', controller.get);
-  router.post('/add', controller.add);
+  router.post('/submit', controller.submit);
 
   module.exports = router;
 

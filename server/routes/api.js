@@ -5,7 +5,7 @@
   var express = require('express');
   var router = express.Router();
 
-  router.use('/count', require('./count'));    
+  router.use('/contract', require('./contract'));    
 
   module.exports = router;
 
