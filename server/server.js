@@ -7,13 +7,15 @@ var path = require('path'); //Node.js module used for getting path of file
 var logger = require('morgan'); //used to log in console window all request
 var cookieParser = require('cookie-parser'); //Parse Cookie header and populate req.cookies
 var bodyParser = require('body-parser'); //allows the use of req.body in POST request
-var server = require('http').createServer(app); //creates an HTTP server instance
-var http = require('http'); //Node.js module creates an instance of HTTP to make calls to Pi
-// var io = require('./sockets').listen(server) //allows for sockets on the HTTP server instance
+var http = require('http').createServer(app); //creates an HTTP server instance
+var io = require('./sockets').listen(http) //allows for sockets on the HTTP server instance
 
 var api = require('./routes/api'); //gets api logic from path
 
 //-------------------------Express JS configs-----------------------------//
+
+//app.set('views', './front');
+// app.set('view engine', 'ejs');
 
 app.use(logger('dev')); //debugs logs in terminal
 app.use(bodyParser.json()); //parses json and sets to body
@@ -21,12 +23,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'front'))); //sets all static file calls to folder
 
+//--------------- io ------------------//
 //---------------API-------------------//
 app.use('/api', api);
 
 
+
 app.get('/', function(req, res, next) {
   res.render('index');
+});
+
+app.get('/test', function(req, res, next) {
+   console.log("ttestsetse");
+   io.emit('test', {"theKey" : 42});
 });
 
 // catch 404 and forward to error handler
@@ -54,16 +63,11 @@ var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
- */
-var server = http.createServer(app);
-
-/**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+http.listen(port);
+http.on('error', onError);
+http.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -115,7 +119,7 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
  */
 function onListening() {
-  var addr = server.address();
+  var addr = http.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
