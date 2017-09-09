@@ -1,6 +1,7 @@
 (function() { 
     'use strict';
     
+    var io = require('../../sockets').get_io();
     const _steps = require("./exercise_steps");
     const _jumping_jacks = require("./exercise_jumping_jacks");
       
@@ -45,8 +46,11 @@
         // TODO - Call Blockchain here
         //
         //
-        console.log(req.body.publicKey);
-        console.log(aegles);
+        io.emit( "skurt", {
+          "publicKey" : req.body.publicKey,
+          "aegles" : aegles
+        });
+
         res.status(200).send("Success Transaction"); return;
      };
         

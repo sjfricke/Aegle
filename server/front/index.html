@@ -17,12 +17,11 @@
 
     <script src="/socket.io/socket.io.js"></script>
 	<script>
-	  var socket = io();
+	  	var socket = io().connect();
 
-	  function count() {
-		//socket.emit('key', 'value');
-	  }
-
+	  	socket.on('skurt', function(data){ 
+	    	console.log(data);
+		});
 	</script>
     
 </head>
