@@ -45,7 +45,8 @@
         // TODO - Call Blockchain here
         //
         //
-
+        console.log(req.body.publicKey);
+        console.log(aegles);
         res.status(200).send("Success Transaction"); return;
      };
         
