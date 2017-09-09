@@ -1,0 +1,4 @@
+[submodule "pebble_pedometer"]
+	path = pebble_pedometer
+	url = https://github.com/sjfricke/pebble_pedometer.git
+	branch = master
