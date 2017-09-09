@@ -1,0 +1,19 @@
+{
+  "name": "aegle-server",
+  "version": "1.0.0",
+  "description": "server backend for Aegle",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Spencer Fricke",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "path": "^0.12.7",
+    "socket.io": "^1.5.1"
+  }
+}
