@@ -15,13 +15,13 @@
         
         // Validate post body
         if ( !req.body.publicKey ) {
-          res.status(400).send("Need to include publicKey in body");
+          res.status(400).send("Need to include publicKey in body"); return;
         }
         else if ( !req.body.exerciseId || req.body.exerciseId == NaN) {
-          res.status(400).send("Need valid exerciseId");
+          res.status(400).send("Need valid exerciseId"); return;
         }
         else if ( !req.body.data ) {
-          res.status(400).send("Need valid data payload");
+          res.status(400).send("Need valid data payload"); return;
         }
 
         // route exerciseId to file for conversion aegle
@@ -33,11 +33,11 @@
           case 200:
             aegles = _jumping_jacks.conversion(req.body.data); break;
           default:
-            res.status(400).send("No valid exerciseId of " + req.body.exerciseId + " found");
+            res.status(400).send("No valid exerciseId of " + req.body.exerciseId + " found"); return;
         }        
 
         if (aegles < 0 || aegles == NaN) {
-          res.status(400).send("Conversion to aegles failed");
+          res.status(400).send("Conversion to aegles failed"); return;
         }
 
         //
@@ -46,7 +46,7 @@
         //
         //
 
-        res.status(200).send("Success Transaction");
+        res.status(200).send("Success Transaction"); return;
      };
         
 })();
