@@ -8,22 +8,13 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     
 <title>Express JS Template</title>
+    <script src="library/web3.min.js"></script>
     <link type="text/css" rel="stylesheet" href="stylesheet/style.css">
     <link rel="stylesheet" href="library/css/bootstrap.min.css">
     
     <script src="library/jquery-3.2.1.min.js" type="text/javascript"></script>
-
-    <script src="javascript/main.js" type="text/javascript"></script>
-
     <script src="/socket.io/socket.io.js"></script>
-	<script>
-	  	var socket = io().connect();
-
-	  	socket.on('skurt', function(data){ 
-	    	console.log(data);
-		});
-	</script>
-    
+    <script src="javascript/main.js" type="text/javascript"></script>  
 </head>
 
 <body>

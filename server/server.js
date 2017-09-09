@@ -11,7 +11,7 @@ var http = require('http').createServer(app); //creates an HTTP server instance
 var io = require('./sockets').listen(http) //allows for sockets on the HTTP server instance
 
 var api = require('./routes/api'); //gets api logic from path
-
+var Web3 = require('web3');
 //-------------------------Express JS configs-----------------------------//
 
 //app.set('views', './front');

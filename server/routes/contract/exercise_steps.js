@@ -13,7 +13,7 @@
         	return -1;
      	}
 
-      return data.steps * 0.53425; //some random algo conversion
+      return Math.round(data.steps * 0.53425); //some random algo conversion
     }
                  
 })();

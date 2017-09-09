@@ -14,7 +14,7 @@
         	return -1;
       	}
 
-        return (data.jacks * 0.53425) / data.time; //some random algo conversion
+        return Math.round((data.jacks * 0.53425) / data.time); //some random algo conversion
     }
                  
 })();

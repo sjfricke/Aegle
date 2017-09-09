@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-
   var express = require('express');
   var controller = require('./contract.controller')    
     
